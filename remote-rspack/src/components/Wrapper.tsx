@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: #1f2124;
+  background: #e61c41;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   margin: 20px;
@@ -42,7 +42,7 @@ export default ({ children }: PropsWithChildren) => {
           />
         </svg>
       </Icon>
-      <Title>I'm the Remote Vite app</Title>
+      <Title>I'm the Remote RSPack app</Title>
       {children}
     </Container>
   );

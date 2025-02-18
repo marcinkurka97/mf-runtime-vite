@@ -44,7 +44,7 @@ export default ({ children }: PropsWithChildren) => {
           />
         </svg>
       </Icon>
-      <Title>I'm the Host app</Title>
+      <Title>I'm the Host RsPack app</Title>
       {children}
     </Container>
   );

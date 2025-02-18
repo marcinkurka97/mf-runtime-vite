@@ -10,11 +10,15 @@ import Wrapper from "./components/Wrapper";
 init({
   name: "host",
   remotes: [
+    // {
+    //   name: "remote-vite",
+    //   entry: "http://127.0.0.1:8081/remoteEntry.js",
+    //   alias: "remote",
+    //   type: "module",
+    // },
     {
-      name: "remote",
-      entry: "http://127.0.0.1:8081/remoteEntry.js",
-      alias: "remote",
-      type: "module",
+      name: "remote-rspack",
+      entry: "http://127.0.0.1:8082/mf-manifest.json",
     },
   ],
   shared: {
@@ -58,8 +62,15 @@ init({
   },
 });
 
-// @ts-ignore
-const RemoteCounter = React.lazy(async () => loadRemote("remote/remote-app"));
+// const RemoteViteCounter = React.lazy(async () =>
+//   // @ts-ignore
+//   loadRemote("remote-vite/remote-app")
+// );
+
+const RemoteRsPackCounter = React.lazy(async () =>
+  // @ts-ignore
+  loadRemote("remote-rspack/remote-app")
+);
 
 export default () => {
   React.useEffect(() => {
@@ -72,8 +83,12 @@ export default () => {
         <Counter />
       </Wrapper>
 
+      {/* <React.Suspense fallback="loading...">
+        <RemoteViteCounter />
+      </React.Suspense> */}
+
       <React.Suspense fallback="loading...">
-        <RemoteCounter />
+        <RemoteRsPackCounter />
       </React.Suspense>
     </>
   );
